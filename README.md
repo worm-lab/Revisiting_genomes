@@ -106,10 +106,10 @@ blastn -query assembly.fasta -db nt -outfmt "6 qseqid staxids bitscore std sscin
 ```
 ```sh
 # for Nanopore reads
-minimap2 -x map-ont assembly.fasta ont_reads.trimmed.fastq.gz | samtools sort > minimap2.assembly.bam
+minimap2 -ax map-ont assembly.fasta ont_reads.trimmed.fastq.gz | samtools sort > minimap2.assembly.bam
 
 # for HiFi reads
-minimap2 -x map-hifi assembly.fasta hifi_reads.fastq.gz | samtools sort > minimap2.assembly.bam
+minimap2 -ax map-hifi assembly.fasta hifi_reads.fastq.gz | samtools sort > minimap2.assembly.bam
 ```
 ```sh
 docker run -u $(id -u) -v $(pwd):/busco_wd ezlabgva/busco:v5.4.7_cv1 busco -i assembly.fasta -o busco_metazoa_odb10_assembly -m genome -l metazoa_odb10
